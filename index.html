@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Alessandra Barbara">
+    <title>MC Helpdesk</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            margin: auto;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .keywords {
+            font-style: italic;
+            color: #666;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        form {
+        background-color: #ffc107;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      nav.navbar.fixed-top {
+        background-color: #ffc107 !important;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+      color: black;
+    }
+    .d-flex.align-items-center {
+    width: 600px;
+    margin: 0 auto;
+    height: 150px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    background: linear-gradient(to right, #e6f7ff, #b3e0ff);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.d-flex.align-items-center:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.d-flex.align-items-center {
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes sfondoArancioneDinamico {
+    0% { background-color: #ffe0b2; }
+    25% { background-color: #ffd999; }
+    50% { background-color: #ffcc80; }
+    75% { background-color: #ffd999; } 
+    100% { background-color: #ffe0b2; }
+}
+
+.d-flex.align-items-center {
+    width: 600px;
+    height: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    animation: sfondoArancioneDinamico 8s infinite alternate;
+}
+#loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out;
+        }
+
+        #loading-screen img {
+            max-width: 100px;
+            animation: fadeOut 1s ease-out 2s forwards;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+          }
+          #loading-text {
+    font-size: 20px;
+    color: rgb(255, 174, 0);
+    text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div id="loading-screen">
+      <img src="img/omino.webp" alt="Caricamento...">
+      <span id="loading-text"><em>Loading...</em></span>
+  </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"><img src="img/logo-michele-40.webp" alt="Casiero Helpdesk"> Michele Casiero Helpdesk</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html" title="Leggi il blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="chisono.html" title="Chi sono">Chi sono</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contatti.html" title="Contatti">Contatti</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <main>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz2" crossorigin="anonymous"></script>
+      <script>
+          window.addEventListener('load', function() {
+              const loadingScreen = document.getElementById('loading-screen');
+              loadingScreen.style.opacity = '0';
+              setTimeout(() => {
+                  loadingScreen.style.display = 'none';
+              }, 1000);
+          });
+      </script>
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/helpdesk.webp" class="d-block w-100" alt="Immergiti nel mio mondo di helpdesk">
+            <div class="carousel-caption d-none d-md-block">
+              <p class="fs-3" style="color: orange;">Helpdesk</p>
+              <p class="fs-5" style="color: orange;">Il tuo problema, la nostra priorità. Risolviamo insieme, velocemente e con efficacia</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/helpdesk-1.webp" class="d-block w-100" alt="Contattami se hai bisogno di un Helpdesk">
+            <div class="carousel-caption d-none d-md-block">
+              <p class="fs-3">Helpdesk</p>
+              <p class="fs-5">Helpdesk: la tua bussola nel mondo digitale. Assistenza su misura, sempre a portata di mano</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/helpdesk-2.webp" class="d-block w-100" alt="Ciò che c'è da sapere del helpdesk">
+            <div class="carousel-caption d-none d-md-block">
+              <p class="fs-3 text-dark">Helpdesk</p>
+              <p class="fs-5 text-dark">Non lasciare che la tecnologia ti fermi. Il nostro helpdesk è qui per te, con soluzioni immediate</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <br><br>
+      <h1 style="margin-top:100px"></h1>
+      <div class="container-fluid">
+        <!--INIZIO JUMBOTRON-->
+        <div class="container my-5">
+          <div class="p-5 text-center bg-body-tertiary rounded-3">
+            <h1 class="text-body-emphasis"><span class="text-primary">Help Desk: Più di un Lavoro, una Passione Che Mi Porta Oltre i Limiti</span></h1>
+            <p class="lead" style="color: #808080;">
+              Ciao a tutti! Sono [Il tuo nome], un professionista dell'help desk con un'esperienza pluriennale nel settore. Il mio lavoro non è solo una professione, ma una vera e propria passione che mi spinge ogni giorno a superare i miei limiti e a fornire un supporto eccellente ai clienti.
+              Lavoro attualmente in una multinazionale, un ambiente stimolante che mi permette di crescere professionalmente e di affrontare sfide sempre nuove. Questo sito web è il mio spazio personale, dove condivido la mia esperienza, le mie conoscenze e la mia passione per l'help desk.
+            </p>
+            <button type="button" class="btn btn-primary btn-lg">Contattami ora!</button>
+          </div>
+        </div>
+        <!--FINE JUMBOTRON-->
+        <p class="text-center">
+        <iframe width="1120" height="630" src="https://www.youtube.com/embed/dIyHNQuH_5M?si=naJxvzqs9_ZGdKcI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+        <div class="section">
+            <p>Lavoro attualmente in una multinazionale, un ambiente stimolante che mi permette di crescere professionalmente e di affrontare sfide sempre nuove. Questo sito web è il mio spazio personale, dove condivido la mia esperienza, le mie conoscenze e la mia passione per l'help desk.</p>
+        </div>
+
+        <div class="section">
+            <h2><strong><p class="text-warning">La Mia Passione per l'Help Desk</strong></h2></p>
+            <p>Molti vedono l'help desk come un lavoro di routine, ma per me è molto di più. È la possibilità di risolvere problemi, di aiutare le persone e di fare la differenza nella loro giornata lavorativa. Ogni chiamata, ogni ticket, ogni sfida è un'opportunità per imparare qualcosa di nuovo e per migliorare le mie competenze.</p>
+            <p>Amo la sensazione di soddisfazione che provo quando riesco a risolvere un problema complesso o a spiegare un concetto tecnico in modo semplice e comprensibile. La mia missione è rendere la tecnologia accessibile a tutti, eliminando le frustrazioni e semplificando la vita dei miei clienti.</p>
+        </div>
+        <!--INIZIO GRID CARDS-->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img src="IMG/Helpdesk-3.webp" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Assistenza rapida e risolutiva:</strong></h5>
+                <p class="card-text">Il nostro team di esperti è pronto a risolvere ogni tua problematica tecnica in tempi rapidi. Supporto multicanale, soluzioni personalizzate e assistenza continua per la tua tranquillità.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="img/Helpdesk-4.webp" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Soluzioni su misura per la tua azienda:</strong></h5>
+                <p class="card-text">Offriamo servizi di helpdesk personalizzati per le esigenze specifiche della tua azienda. Gestione ticket efficiente, monitoraggio proattivo e supporto IT completo per ottimizzare la tua produttività.
+                </p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="img/Helpdesk-5.webp" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Formazione e supporto continuo:</strong></h5>
+                <p class="card-text">Non solo risolviamo i tuoi problemi, ma ti forniamo anche formazione e supporto continuo per aiutarti a prevenire futuri inconvenienti. Guida passo-passo, tutorial e risorse utili a tua disposizione.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--FINE GRID CARDS-->
+        <br></br>
+        <div class="section">
+            <h2><strong><p class="text-warning">Il Mio Percorso di Crescita</strong></h2></p>
+            <p>La mia esperienza pluriennale mi ha permesso di acquisire una vasta gamma di competenze tecniche e relazionali. Sono in grado di gestire diverse piattaforme software e hardware, di risolvere problemi di rete e di fornire supporto su vari sistemi operativi.</p>
+            <p>Ma non mi fermo mai. Sono costantemente alla ricerca di nuove sfide e di opportunità per migliorare le mie competenze. Attualmente, sto conseguendo diverse certificazioni, tra cui:</p>
+            <ul>
+                <li><strong>CCNA (Cisco Certified Network Associate):</strong> per approfondire le mie conoscenze sulle reti informatiche.</li>
+                <li><strong>CCNA Security:</strong> per specializzarmi nella sicurezza delle reti.</li>
+                <li><strong>MCSA 2008 Release 2 (Microsoft Certified Solutions Associate):</strong> per consolidare le mie competenze sui sistemi operativi Microsoft.</li>
+                <li><strong>AZ-900 (Microsoft Azure Fundamentals):</strong> per acquisire una solida base sui servizi cloud di Microsoft Azure.</li>
+                <li><strong>MS-900 (Microsoft 365 Fundamentals):</strong> per conoscere a fondo i servizi di Microsoft 365.</li>
+                <li><strong>AZ-104 (Microsoft Azure Administrator):</strong> per diventare un amministratore esperto di Microsoft Azure.</li>
+            </ul>
+            <p>Queste certificazioni mi permetteranno di offrire un supporto ancora più completo e professionale ai miei clienti, e di rimanere aggiornato sulle ultime tecnologie.</p>
+        </div>
+        <!--inizio media object-->
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0">
+            <img src="img/logo-100.webp" alt="...">
+          </div>
+          <div class="flex-grow-1 ms-3" style="color: #808080;">
+            <em>Vi invitiamo a contattarci senza esitazione per qualsiasi domanda, chiarimento o necessità di supporto possiate avere.</em>
+          </div>
+        </div>
+        <!--fine media object-->
+        <br><br>
+        <!--INIZIO ACCORDION-->
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <strong>Non riesco ad accedere al mio account, cosa posso fare?</strong>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Verifichi la connessione internet e che le credenziali siano corrette. Se il problema persiste, possiamo resettare la password o controllare eventuali blocchi.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <strong>Il software che uso si è bloccato e non risponde, come posso risolvere?</strong>
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Provi a chiudere forzatamente il programma e riavviarlo. Se il problema si ripresenta, le consiglio di riavviare il computer e di verificare gli aggiornamenti.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <strong>Ho un problema con la stampante, non stampa correttamente, cosa posso fare?</strong>
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Controlli che la stampante sia accesa e collegata correttamente. Verifichi il livello di inchiostro e la presenza di inceppamenti. Se necessario, provi a reinstallare i driver.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--FINE ACCORDION-->
+        <br></br>
+        <div class="section">
+            <h2><strong><p class="text-warning">Il Mio impegno</strong></h2></p>
+            <p>Sono un professionista appassionato e dedicato, sempre pronto ad aiutare i miei clienti. La mia esperienza pluriennale, le mie competenze tecniche e le mie certificazioni mi permettono di offrire un servizio di help desk di alta qualità.</p>
+            <p>Se hai bisogno di supporto tecnico, non esitare a contattarmi. Sarò felice di aiutarti a risolvere i tuoi problemi e a rendere la tua esperienza tecnologica più semplice e piacevole.</p>
+        </div>
+
+        <div class="section keywords">
+            <p><strong>Parole chiave:</strong> Help desk, Supporto tecnico, Certificazioni IT, CCNA, CCNA Security, MCSA 2008 Release 2, AZ-900, MS-900, AZ-104, Risoluzione problemi, Assistenza clienti, Tecnologia, Sistemi operativi, Reti informatiche, Microsoft Azure, Microsoft 365</p>
+        </div>
+      </div>
+      <div class="container">
+        <!--INIZIO FORM-->
+        <form>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nome*">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cognome*">
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address*">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1"><em>Consento il trattamento dei dati personali GDPR 679/2016</em></label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!--FINE FORM-->
+      </div>
+    </main>
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <div class="me-5 d-none d-lg-block container">
+      <span><em>Resta in contatto con noi attraverso i social network.</em></span>
+    </div>
+    <div>
+      <a href="https://www.facebook.com/michele.casiero" target="_blank" class="text-reset"><i class="bi bi-facebook" style="padding-right: 10px"></i></a>
+      <a href="https://www.instagram.com/michele_casiero/" target="_blank" class="text-reset"><i class="bi bi-instagram" style="padding-right: 10px"></i></a>
+      <a href="https://www.linkedin.com/in/michele-casiero-8235aa33/" target="_blank" class="text-reset"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </section>
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3"></i>Michele Casiero Helpdesk</h6>
+           <p>Problemi tecnici? Risolviamoli insieme. Contattami ora per una soluzione rapida e professionale.</p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Naviga il sito</h6>
+          <p><a href="blog.html" class="text-reset text-decoration-none">Blog</a></p>
+          <p><a href="#!" class="text-reset text-decoration-none">React</a></p>
+          <p><a href="#!" class="text-reset text-decoration-none">Vue</a></p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Link utili</h6>
+          <p><a href="https://www.microsoft.com/it-it/windows?r=1" target="_blank" class="text-reset text-decoration-none">Micrsoft</a></p>
+          <p><a href="https://aviatrix.com/" target="_blank" class="text-reset text-decoration-none">Azure</a></p>
+          <p><a href="https://cloud.google.com/?hl=it" target="_blank" class="text-reset text-decoration-none">Cloud</a></p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
+          <p><i class="bi bi-house me-3"></i> Bari, Italia, IT</p>
+          <p><i class="bi bi-envelope me-3"></i> michele.casiero@libero.it</p>
+          <p><i class="bi bi-phone me-3"></i> + 39 3492243187</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/" target="_blank" >Michele Casiero</a>
+  </div>
+</footer>
+<!-- Footer -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
